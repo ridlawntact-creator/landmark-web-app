@@ -6,7 +6,7 @@ metadata:
   annotations:
     service.beta.kubernetes.io/aws-load-balancer-type: "nlb"
     service.beta.kubernetes.io/aws-load-balancer-scheme: "internet-facing"
-    service.beta.kubernetes.io/aws-load-balancer-subnets: "subnet-xxxxxx, subnet-yyyyyy, subnet-zzzzzz"
+    service.beta.kubernetes.io/aws-load-balancer-subnets: "subnet-092445457fcf677b9, subnet-0acf59edb9d502cde"
 spec:
   type: LoadBalancer
   selector:
