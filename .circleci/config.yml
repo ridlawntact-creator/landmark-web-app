@@ -35,12 +35,6 @@ jobs:
       - image: cimg/node:18.0
     steps:
       - checkout
-      - run:
-          name: Install & test
-          command: |
-            npm ci
-            npm test
-            npm run build
       - setup_remote_docker
       - run:
           name: Build and push Docker image
@@ -65,12 +59,6 @@ jobs:
       - image: cimg/node:18.0
     steps:
       - checkout
-      - run:
-          name: Install & test
-          command: |
-            npm ci
-            npm test
-            npm run build
       - setup_remote_docker
       - run:
           name: Build and push Docker image
@@ -95,12 +83,6 @@ jobs:
       - image: cimg/node:18.0
     steps:
       - checkout
-      - run:
-          name: Install & test
-          command: |
-            npm ci
-            npm test
-            npm run build
       - setup_remote_docker
       - run:
           name: Build and push Docker image
@@ -121,27 +103,24 @@ jobs:
             kubectl apply -f k8s/
 
 workflows:
-  ci:
+  build-and-deploy:
     jobs:
       - test-and-build
-
-  deploy-to-dev:
-    jobs:
       - deploy-dev:
+          requires:
+            - test-and-build
           filters:
             branches:
               only: develop
-
-  deploy-to-staging:
-    jobs:
       - deploy-stg:
+          requires:
+            - test-and-build
           filters:
             branches:
               only: /^release.*/
-
-  deploy-to-production:
-    jobs:
       - deploy-prod:
+          requires:
+            - test-and-build
           filters:
             branches:
               only:
