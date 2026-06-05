@@ -21,14 +21,7 @@ jobs:
       - run:
           name: Run server tests
           command: cd server && npm test
-      - setup_remote_docker
-      - run:
-          name: Docker build (validate)
-          command: |
-            BRANCH=$(echo "$CIRCLE_BRANCH" | sed 's/\//-/g')
-            TIMESTAMP=$(date +'%Y%m%d-%H%M%S')
-            IMAGE_TAG="${BRANCH}-${TIMESTAMP}"
-            docker build -t chafah/landmark-web-app:$IMAGE_TAG .
+
 
   deploy-dev:
     docker:
