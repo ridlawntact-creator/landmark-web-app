@@ -6,9 +6,11 @@ const { app, Student } = require('../index');
 let mongoServer;
 
 beforeAll(async () => {
-  mongoServer = await MongoMemoryServer.create();
+  mongoServer = await MongoMemoryServer.create({
+    binary: { version: '7.0.4' }
+  });
   await mongoose.connect(mongoServer.getUri());
-});
+}, 60000);
 
 afterAll(async () => {
   await mongoose.disconnect();
