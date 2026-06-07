@@ -250,24 +250,6 @@ unzip awscliv2.zip
 sudo ./aws/install
 ```
 
-### Tools to Install on Jenkins Server
-
-```bash
-# Git (required)
-sudo dnf install git -y
-
-# Docker (required - plugin only provides DSL, not the daemon)
-sudo dnf install docker -y
-sudo systemctl start docker && sudo systemctl enable docker
-sudo usermod -aG docker jenkins
-sudo systemctl restart jenkins
-
-# AWS CLI v2 (required - plugin only injects creds, not the binary)
-curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
-unzip awscliv2.zip
-sudo ./aws/install
-```
-
 > **Note:** Node.js and kubectl do NOT need to be installed on the server — the **NodeJS** and **Kubernetes CLI** plugins install them automatically.
 
 ---
