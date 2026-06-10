@@ -41,7 +41,7 @@ jobs:
             BRANCH=$(echo "$CIRCLE_BRANCH" | sed 's/\//-/g')
             TIMESTAMP=$(date +'%Y%m%d-%H%M%S')
             IMAGE_TAG="${BRANCH}-${TIMESTAMP}"
-            echo "$DOCKERHUB_PASSWORD" | docker login -u "$DOCKERHUB_USERNAME" --password-stdin
+            echo "$DOCKERHUB_PASSWORD" | docker login -u ridlawntact --password-stdin
             docker build -t ridlawntact/landmark-web-app:$IMAGE_TAG .
             docker push ridlawntact/landmark-web-app:$IMAGE_TAG
             echo "export IMAGE_TAG=$IMAGE_TAG" >> $BASH_ENV
@@ -69,7 +69,7 @@ jobs:
             BRANCH=$(echo "$CIRCLE_BRANCH" | sed 's/\//-/g')
             TIMESTAMP=$(date +'%Y%m%d-%H%M%S')
             IMAGE_TAG="${BRANCH}-${TIMESTAMP}"
-            echo "$DOCKERHUB_PASSWORD" | docker login -u "$DOCKERHUB_USERNAME" --password-stdin
+            echo "$DOCKERHUB_PASSWORD" | docker login -u ridlawntact --password-stdin
             docker build -t ridlawntact/landmark-web-app:$IMAGE_TAG .
             docker push ridlawntact/landmark-web-app:$IMAGE_TAG
             echo "export IMAGE_TAG=$IMAGE_TAG" >> $BASH_ENV
@@ -97,7 +97,7 @@ jobs:
             BRANCH=$(echo "$CIRCLE_BRANCH" | sed 's/\//-/g')
             TIMESTAMP=$(date +'%Y%m%d-%H%M%S')
             IMAGE_TAG="${BRANCH}-${TIMESTAMP}"
-            echo "$DOCKERHUB_PASSWORD" | docker login -u "$DOCKERHUB_USERNAME" --password-stdin
+            echo "$DOCKERHUB_PASSWORD" | docker login -u ridlawntact --password-stdin
             docker build -t ridlawntact/landmark-web-app:$IMAGE_TAG .
             docker push ridlawntact/landmark-web-app:$IMAGE_TAG
             echo "export IMAGE_TAG=$IMAGE_TAG" >> $BASH_ENV
